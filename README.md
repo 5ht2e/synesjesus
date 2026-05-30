@@ -7,3 +7,4 @@ How to do GCS training:
 
 2. Export your settings from the Rainbow Text chrome extension. Import that same settings file to do synesthesia n-back on this site: https://5ht2e.github.io/synesjesus/synesthesianback/index.html.
 
+3. In addition to synesthesia n-back and flashcard training, read text in hardcore mode using the Rainbow Text extension.
