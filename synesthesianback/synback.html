@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Synesthesia N-Back</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<h1>Synesthesia N-Back</h1>
+
+<div id="setup">
+
+    <h2>Settings</h2>
+
+    <label>
+        N Level:
+        <input id="nValue" type="number" value="1" min="1" max="10">
+    </label>
+
+    <label>
+        Trials:
+        <input id="trialCount" type="number" value="50" min="10" max="500">
+    </label>
+
+    <h3>Import / Export</h3>
+
+    <input
+        type="file"
+        id="importSettings"
+        accept=".json">
+
+    <button id="exportSettings">
+        Export Settings
+    </button>
+
+    <h3>Active Characters</h3>
+
+    <button id="selectAllChars">
+        Select All
+    </button>
+
+    <button id="selectNoneChars">
+        Select None
+    </button>
+
+    <div id="characterSelector"></div>
+
+    <h3>Character Colors</h3>
+
+    <table id="mappingTable">
+        <thead>
+            <tr>
+                <th>Character</th>
+                <th>R</th>
+                <th>G</th>
+                <th>B</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <button id="startBtn">
+        Start
+    </button>
+
+</div>
+
+<div id="gameArea">
+
+    <h2 id="status"></h2>
+
+    <div id="stimulus"></div>
+
+    <div id="feedback"></div>
+
+    <p>
+        Press SPACE whenever the current
+        item matches the item N-back
+        according to its synesthetic identity.
+    </p>
+
+</div>
+
+<div id="results"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
