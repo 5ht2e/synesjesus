@@ -344,6 +344,41 @@ function createTrials(total,n){
 // Gameplay
 // -----------------------------------------------------
 
+function registerMatchResponse(){
+
+    if(!awaitingResponse){
+        return;
+    }
+
+    const idx = currentTrial;
+
+    const isMatch =
+
+        idx >= nBack &&
+
+        trials[idx].identity ===
+        trials[idx-nBack].identity;
+
+    if(isMatch){
+
+        hits++;
+
+        showFeedback(
+            "✓ Correct"
+        );
+
+    }else{
+
+        falseAlarms++;
+
+        showFeedback(
+            "✗ Wrong"
+        );
+    }
+
+    awaitingResponse = false;
+}
+
 function evaluateNoResponse(index){
 
     const isMatch =
@@ -533,42 +568,19 @@ document.addEventListener(
     "keydown",
     e => {
 
-        if(
-            e.code !== "Space" ||
-            !awaitingResponse
-        ){
+        if(e.code !== "Space"){
             return;
         }
 
-        const idx =
-            currentTrial;
-
-        const isMatch =
-
-            idx >= nBack &&
-
-            trials[idx].identity ===
-            trials[idx-nBack].identity;
-
-        if(isMatch){
-
-            hits++;
-
-            showFeedback(
-                "✓ Correct"
-            );
-
-        }else{
-
-            falseAlarms++;
-
-            showFeedback(
-                "✗ Wrong"
-            );
-        }
-
-        awaitingResponse = false;
+        registerMatchResponse();
     }
+);
+
+document
+.getElementById("matchButton")
+.addEventListener(
+    "click",
+    registerMatchResponse
 );
 
 // -----------------------------------------------------
