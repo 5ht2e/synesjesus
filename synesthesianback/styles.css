@@ -34,6 +34,19 @@ body{
     min-height:40px;
 }
 
+#matchButton{
+    font-size:28px;
+    font-weight:bold;
+    padding:15px 40px;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+#matchButton:disabled{
+    opacity:0.5;
+    cursor:default;
+}
+
 table{
     border-collapse:collapse;
     margin:auto;
